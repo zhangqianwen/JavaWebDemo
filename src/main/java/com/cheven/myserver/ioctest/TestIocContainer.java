@@ -9,6 +9,9 @@ public class TestIocContainer {
 	public static void  main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextdao.xml");
 		
+		Header straightHeader = context.getBean("header",StraightHeader.class);
+		straightHeader.getInfo();
+		
 		ScrewDriver screwDriver = context.getBean("ScrewDriver", ScrewDriver.class);
 		
 		screwDriver.use(); 

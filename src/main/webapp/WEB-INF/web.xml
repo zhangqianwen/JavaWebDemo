@@ -9,6 +9,7 @@
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   
+  <!-- servletcontext -->
   <context-param>
   	<param-name>contextConfigLocation</param-name>
   	<param-value>
@@ -17,18 +18,22 @@
   </context-param>
   
    <servlet>
-        <servlet-name>JavaWebProjectDemo</servlet-name>
+        <servlet-name>example</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>JavaWebProjectDemo</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>example</servlet-name>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
     
     <servlet>
     	<servlet-name>testservlet</servlet-name>
     	<servlet-class>com.cheven.myserver.controller.HelloController</servlet-class>
+    	<init-param>
+   			<param-name>data</param-name>
+   			<param-value>value</param-value>
+   		</init-param>
     </servlet>
     <servlet-mapping>
     	<servlet-name>testservlet</servlet-name>

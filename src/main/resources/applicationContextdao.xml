@@ -11,5 +11,16 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd"
        default-lazy-init="true">
 
+	<bean id = "ScrewDriver" class="com.cheven.myserver.ioctest.ScrewDriver" autowire="byName">
+	</bean>
+	
+	<bean id = "header" class="com.cheven.myserver.ioctest.StraightHeader">
+		<constructor-arg name="color" value="${color}"></constructor-arg>
+		<constructor-arg name="size" value="${size}"></constructor-arg>
+	</bean>
 
+	<bean id="hearderProperties"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:header.properties"></property>	
+	</bean>
 </beans>

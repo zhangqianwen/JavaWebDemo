@@ -2,16 +2,13 @@ package com.cheven.myserver.controller;
 
 import java.io.IOException;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping(value = "/hello")
 public class HelloController extends HttpServlet{
 	
 	/**
@@ -25,7 +22,10 @@ public class HelloController extends HttpServlet{
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("doGet method");
-		resp.getWriter().write("Hello,Spring Web!");
+		ServletConfig config = this.getServletConfig();	
+		resp.getWriter().write("Hello, Web!");
+		System.out.println(config.getInitParameter("data"));
+
 	}
 
 
@@ -48,11 +48,5 @@ public class HelloController extends HttpServlet{
 	public void init() throws ServletException {
 		System.out.println("init method");
 
-	}
-
-
-	@RequestMapping(value="/spring")
-	public void spring(HttpServletResponse response) throws IOException{
-		response.getWriter().write("Hello,Spring Web!");
 	}
 }
